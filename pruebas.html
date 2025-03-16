@@ -31,33 +31,6 @@
         }
 
 
-        function create() {
-            
-            data={
-                "nombre":"Martin",
-                "descripcion":"PERRO DE OJOS SALTONES",
-                "imagen":"https://purina.com.mx/sites/default/files/2023-08/PASTOR%20AUSTRALIANO%20480X684.png",
-
-            }
-            fetch('http://192.168.107.90:8000/mascotas/api/',{
-                method:'POST',
-                headers:{
-                    'Content-Type':'application/json'
-                },
-                body:JSON.stringify(data)
-
-            })
-                .then(response => {
-                    return response.json();
-                }).then(data => {
-
-                    console.log(data);
-
-                }).catch(error => {
-                    console.error(error);
-
-                })
-        }
 
         function update() {
             
