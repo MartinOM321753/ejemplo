@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div id="listado"> </div>
+
+
+    <script>
+
+        function getData() {
+
+            fetch('http://192.168.107.90:8000/mascotas/api/')
+                .then(response => {
+                    return response.json();
+                }).then(data => {
+
+                    console.log(data);
+
+                }).catch(error => {
+                    console.error(error);
+
+                })
+        }
+
+
+        function create() {
+            
+            data={
+                "nombre":"Martin",
+                "descripcion":"PERRO DE OJOS SALTONES",
+                "imagen":"https://purina.com.mx/sites/default/files/2023-08/PASTOR%20AUSTRALIANO%20480X684.png",
+
+            }
+            fetch('http://192.168.107.90:8000/mascotas/api/',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify(data)
+
+            })
+                .then(response => {
+                    return response.json();
+                }).then(data => {
+
+                    console.log(data);
+
+                }).catch(error => {
+                    console.error(error);
+
+                })
+        }
+
+        function update() {
+            
+            data={
+                "nombre":"Martin",
+                "descripcion":"PERRO OVEJERO",
+                "imagen":"https://purina.com.mx/sites/default/files/2023-08/PASTOR%20AUSTRALIANO%20480X684.png",
+
+            }
+            fetch('http://192.168.107.90:8000/mascotas/api/690/',{
+                method:'PUT',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify(data)
+
+            })
+                .then(response => {
+                    return response.json();
+                }).then(data => {
+
+                    console.log(data);
+
+                }).catch(error => {
+                    console.error(error);
+
+                })
+        }
+
+
+        function obtener() {
+            
+            fetch('http://192.168.107.90:8000/mascotas/api/1/',{
+                method:'GET',
+                headers:{
+                    'Content-Type':'application/json',
+                    'Secret':'DAWP'
+                },
+                
+            })
+                .then(response => {
+                    
+                    
+                    return response.json();
+                }).then(data => {
+
+                    console.log(data);
+
+                }).catch(error => {
+                    console.error(error);
+
+                })
+        }
+
+    </script>
+
+</body>
+
+</html>
