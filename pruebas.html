@@ -61,30 +61,6 @@
         }
 
 
-        function obtener() {
-            
-            fetch('http://192.168.107.90:8000/mascotas/api/1/',{
-                method:'GET',
-                headers:{
-                    'Content-Type':'application/json',
-                    'Secret':'DAWP'
-                },
-                
-            })
-                .then(response => {
-                    
-                    
-                    return response.json();
-                }).then(data => {
-
-                    console.log(data);
-
-                }).catch(error => {
-                    console.error(error);
-
-                })
-        }
-
     </script>
 
 </body>
